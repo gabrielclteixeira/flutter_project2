@@ -20,11 +20,14 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(onPressed: (() => ''), icon: Icon(Icons.add))
+        ],
         title: Text('Transactions App'),
         backgroundColor: Colors.orange,
       ),
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Card(
               child: Container(
@@ -32,10 +35,13 @@ class MyHomePage extends StatelessWidget {
                 child: Text('Test Chart'),
                 color: Colors.orange,
               ),
-              elevation: 5,
+              elevation: 15,
             ),
             UserTransaction()
           ]),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+          floatingActionButton: FloatingActionButton(child: Icon(Icons.add), onPressed: () {},),
     );
   }
 }
